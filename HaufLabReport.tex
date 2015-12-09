@@ -1,5 +1,12 @@
 %\begin{itemize}
 %\end{itemize}
+%\framebreak
+%\begin{figure}
+%\centering
+%   \def\svgwidth{0.75\columnwidth}
+%\input{}
+%\caption{\tiny {}}
+%\end{figure}
 % Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
 %
 % In principle, this file can be redistributed and/or modified under
@@ -14,6 +21,7 @@
 
 \documentclass{beamer}
 \usepackage{graphicx}
+%\usepackage{enumitem}
 \setbeamertemplate{frametitle continuation}{\frametitle{\color{white}Title}}
 % There are many different themes available for Beamer. A comprehensive
 % list with examples is given here:
@@ -179,39 +187,192 @@
 \begin{frame}[allowframebreaks]{Story 1: MBC, mitosis, microscopy..}{To verify observations of Castagnetti et al and to study chrososome segregation in ``nuclear fission''}
 
 \begin{itemize}
-\item Perils of over eager strain construction:{\it mad3$\Delta$ cen2-lacI-GFP cen3-tetR-tdTomato/dh1L-tetR-tdTomato}
+\item Perils of overeager strain construction:{\it mad3$\Delta$ cen2-lacI-GFP cen3-tetR-tdTomato/dh1L-tetR-tdTomato}
 \item Controls
 	\begin{itemize}
 	\item MBC effect on tubulin
 	\item Temperature
 	\end{itemize}
+\item Control 1: SK399: { \it atb2-GFP plo1-mCherry}
+\item Control 2: SU603/SU604: {\it mad3$\Delta$ plo1-mCherry cen2-GFP}
 \end{itemize}
 \framebreak
 \begin{center}
 \includegraphics[scale=0.5]{MBC_Control_SK399_1.jpg}
+
+SK399: atb2-GFP plo1-mCherry
 \end{center}
 \framebreak
 
 \begin{center}
 \includegraphics[scale=0.3]{MBC_Control_SK399_2.png}
-\end{center}
-\end{frame}
 
+SK399: atb2-GFP plo1-mCherry
+\end{center}
+
+\framebreak
+
+\begin{center}
+%\includegraphics[scale=1.5]{su_2.png}
+ {\it mad3$\Delta$ plo1-mCherry cen2-GFP}
+
+\begin{tabular}{|l l|}
+\hline
+cen2 split after observable plo1 split & 10 \\
+cen2 split during plo1 window (plo1 split not observed) & 23 \\
+cen2 split after plo1 window & 9 \\
+non-splitting cen2 in plo1 window & 8 \\
+cen2 split in absence of plo1 & 3\\
+\hline
+Total number observed & 53 \\
+\hline
+\end{tabular}
+\end{center}
+
+\framebreak
+\begin{figure}
+\centering
+\includegraphics[scale=2.2]{kymograph_long.png}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=1.5]{kymo_large_window.pdf}
+\end{figure}
+\end{frame}
+\begin{frame}{Conclusions 1}
+\begin{itemize}
+\item Observations coincide with that of Castagnetti et al.
+\item Practical considerations: 3 color filming?
+\item General take-home: What effect are is really being descibed?
+\end{itemize}
+\end{frame}
 \subsection{Temporal dynamics of mitotic regulators}
 \begin{frame}{Temporal dynamics of mitotic regulators}
 \begin{itemize}	
 	\item Motivation
 		\begin{itemize}	
-			\item text
+			\item Cdc13 and the apparent stabilization
+			\item Automating image analysis
+			\item Tool to study temporal dynamics from microscopy
 		\end{itemize}
-	\item Work Flow
-		\begin{itemize}	
-			\item text
-		\end{itemize}
-	\item Results
-		\begin{itemize}	
-			\item text
-		\end{itemize}	
+		
+\end{itemize}
+\end{frame}
+\begin{frame}[allowframebreaks]{Story 2: ImageJ, automation, insight}{To attempt to create an ImageJ based workflow to automate image analysis to obtain temporal dynamics}
+\begin{figure}
+\includegraphics{cartoon1.png}
+\end{figure}
+\framebreak
+\begin{figure}
+\includegraphics{cartoon2.png}
+\end{figure}
+\framebreak
+\begin{figure}
+\includegraphics{cartoon3.png}
+\end{figure}
+\framebreak
+\begin{figure}
+\includegraphics{cartoon4.png}
+\end{figure}
+
+
+\framebreak
+\begin{itemize}
+	\item Workflow
+		\begin{enumerate}
+		\item IF single cell AND fixed AND no cells enter 
+		\item Transform cells $\rightarrow$ STEP 1.
+		\item Threshold ROI OR create Mask
+		\item ``Analyze Particles''
+		\item ``Clean'' output 
+		\item Scilab script plots, assembles plot lines.
+		\item Registration? Segmentation $\rightarrow$ GOTO STEP 1.
+		\end{enumerate}
+
+\end{itemize}
+\end{frame}
+
+\framebreak
+\begin{figure}
+\centering
+   \def\svgwidth{0.75\columnwidth}
+\input{st957_cdc13_nucred_cellgreen.pdf_tex}
+\caption{ST957: {\it cdc13-sfGFP dh1L-tetR-tdTomato}}
+\end{figure}
+
+\framebreak
+
+\begin{figure}
+\centering
+   \def\svgwidth{0.75\columnwidth}
+\input{st650_cdc2nucred_cdc2cellgreen_notNor1.pdf_tex}
+\caption{ST650: {\it cdc2-GFP dh1L-tetR-tdTomato}}
+\end{figure}
+
+\framebreak
+\begin{figure}
+
+\centering
+   \def\svgwidth{0.75\columnwidth}
+\input{sl249_cut2_nucred_cellgreen.pdf_tex}
+\caption{SL249: {\it cut2-GFP dh1L-tetR-tdTomato}}
+\end{figure}
+
+\framebreak
+\begin{figure}
+\centering
+   \def\svgwidth{0.75\columnwidth}
+\input{su076_cut2nucgreen_cdc2nucred.pdf_tex}
+\caption{SU076: {\it cdc2-mCherry cut2-GFP}}
+\end{figure}
+
+
+\framebreak
+\begin{figure}
+\centering
+   \def\svgwidth{0.75\columnwidth}
+\input{su076_cut2nucgreen_cdc2nucred.pdf_tex}
+\caption{SU076: {\it cdc2-mCherry cut2-GFP}}
+\end{figure}
+
+
+\framebreak
+
+\begin{figure}
+\centering
+   \def\svgwidth{0.75\columnwidth}
+\input{st998_20xcdc13nucgreen_cdc2nucred.pdf_tex}
+\caption{ {ST998: {\it 20X-cdc13-sfGFP cdc2-mCherry}}}
+\end{figure}
+
+\framebreak
+\begin{figure}
+\centering
+   \def\svgwidth{0.75\columnwidth}
+\input{su417_cdc13_wcgreen_nucred.pdf_tex}
+\caption{SU417: {\it plo1-mCherry 20Xcdc13-sfGFP}}
+\end{figure}
+
+\framebreak
+\begin{figure}
+\centering
+   \def\svgwidth{0.75\columnwidth}
+\input{su302_nucgreen_nucred_declines_dont_match.pdf_tex}
+\caption {SU302: {\it 8Xcut2-GFP cdc2-mCherry}}
+\end{figure}
+
+\framebreak
+\begin{figure}
+\centering
+   \def\svgwidth{0.75\columnwidth}
+\input{su303_cut2wr_cut2ng.pdf_tex}
+\caption{SU303: {\it 8Xcut2-GFP cdc2-mCherry }}
+\end{figure}
+
+\begin{frame}{Conclusions 2}
+\begin{itemize}
+\item Cdc13 and Cdc2 seem to exhibit preferential export from the nucleus on entry into mitosis
+\item Overexpressing cut2 leads to whole cell degradation?
 \end{itemize}
 \end{frame}
 
@@ -219,14 +380,17 @@
 
 \begin{frame}{Summary}
 \begin{itemize}
-	\item Microscopy on live cells..
+	\item MBC treatment experiment inconclusive
+	\item Cdc13, cdc2, cut2 dynamics studied
 \end{itemize}
 \end{frame}
 
 \section{Outlook}
 \begin{frame}{Outlook}
 \begin{itemize}
-	\item Learnings
+	\item Other approaches to study centromere separation
+	\item 
+
 \end{itemize}
 \end{frame}
 % You can reveal the parts of a slide one at a time
@@ -334,6 +498,10 @@
 %     \newblock {\em Journal of This and That}, 2(1):50--100,
 %     2000.
    \end{thebibliography}
+\end{frame}
+
+\begin{frame}{Thank you}
+
 \end{frame}
 
 \end{document}
