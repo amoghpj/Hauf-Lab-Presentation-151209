@@ -21,7 +21,9 @@
 
 \documentclass{beamer}
 \usepackage{graphicx}
+
 %\usepackage{enumitem}
+\usepackage{amsmath}
 \setbeamertemplate{frametitle continuation}{\frametitle{\color{white}Title}}
 % There are many different themes available for Beamer. A comprehensive
 % list with examples is given here:
@@ -69,7 +71,8 @@
 \institute[Virginia Tech] % (optional, but mostly needed)
 {
   \inst{1}%
-  Genetics, Bioinformatics and Computational Biology
+  Genetics, Bioinformatics and Computational Biology, \\
+Virginia Tech
 }
 %  \and
 %  \inst{2}%
@@ -91,8 +94,8 @@
 % is a graphic format that can be processed by latex or pdflatex,
 % resp., then you can add a logo as follows:
 
-% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
-% \logo{\pgfuseimage{university-logo}}
+ \pgfdeclareimage[height=0.5cm]{university-logo}{vt_logo.png}
+ \logo{\pgfuseimage{university-logo}}
 
 % Delete this, if you do not want the table of contents to pop up at
 % the beginning of each subsection:
@@ -120,27 +123,37 @@
 \section{Background}
 
 \subsection{The Biology}
-\begin{frame}{The biology}
-\includegraphics[scale=0.5]{cell_cycle.png}
-  \begin{itemize} 
-\item An overview of the cell cycle 
-\begin{itemize}
-  \item{    Driving the cell through the division cycle  }
-  \item{Regulators and checkpoints}
-  \item{   Dynamics of molecular players}
-  \end{itemize}
-\item But why study it?	
+\begin{frame}[allowframebreaks]{The Biology}
+%\includegraphics[scale=0.5]{cell_cycle.png}
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{cyclins.jpg}
+\end{figure}
+\begin{figure}
+\includegraphics[scale=0.2]{mitosis_overview.jpg}
+\caption {\tiny {The cell \href{http://www2.le.ac.uk/departments/genetics/vgec/schoolscolleges/topics/cellcycle-mitosis-meiosis}{cycle}. Cyclin dynamics through the cell cycle. \href{https://www.boundless.com/biology/textbooks/boundless-biology-textbook/cell-reproduction-10/control-of-the-cell-cycle-89/regulator-molecules-of-the-cell-cycle-399-11626/}{\tiny Source}}}
+\end{figure}
 
-\begin{itemize}
-  \item{  Basis of life}
-
-  \item{  Cancer}
-
-  \item{  Growth and development}
-\end{itemize}
+\framebreak
+\begin{figure}
+\includegraphics[scale=0.2]{chro.pdf}
+\caption{\href{http://www.nature.com/nrm/journal/v15/n11/pdf/nrm3888.pdf}{Source}}
+%\centering
+%   \def\svgwidth{0.4\columnwidth}
+%\input{chro.pdf_tex}
+%\caption{\href{http://www.nature.com/nrm/journal/v15/n11/pdf/nrm3888.pdf}{Source}}
+\end{figure}
+\begin{itemize} 
+	\item But why study it?	
+		\begin{itemize}
+	  	\item{Basis of life}
+		\item{Cancer}
+		\item{Growth and development}
+		\end{itemize}
 \end{itemize}
 \end{frame}
-\subsection{...and the beast}
+
+\subsection{...and the Beast}
 \begin{frame}{...and the beast}
 
 \begin{itemize}
@@ -184,7 +197,7 @@
 		\end{itemize}
 \end{itemize}
 \end{frame}
-\begin{frame}[allowframebreaks]{Story 1: MBC, mitosis, microscopy..}{To verify observations of Castagnetti et al and to study chrososome segregation in ``nuclear fission''}
+\begin{frame}[allowframebreaks]{Story 1: MBC, mitosis, microscopy..}{To verify observations of Castagnetti et al and to study chromosome segregation in ``nuclear fission''}
 
 \begin{itemize}
 \item Perils of overeager strain construction:{\it mad3$\Delta$ cen2-lacI-GFP cen3-tetR-tdTomato/dh1L-tetR-tdTomato}
@@ -297,7 +310,7 @@ Total number observed & 53 \\
 \centering
    \def\svgwidth{0.75\columnwidth}
 \input{st957_cdc13_nucred_cellgreen.pdf_tex}
-\caption{ST957: {\it cdc13-sfGFP dh1L-tetR-tdTomato}}
+\caption{ST957: {\it cdc13-sfGFP dh1L-tetR-tdTomato} T$=15$s}
 \end{figure}
 
 \framebreak
@@ -306,7 +319,7 @@ Total number observed & 53 \\
 \centering
    \def\svgwidth{0.75\columnwidth}
 \input{st650_cdc2nucred_cdc2cellgreen_notNor1.pdf_tex}
-\caption{ST650: {\it cdc2-GFP dh1L-tetR-tdTomato}}
+\caption{ST650: {\it cdc2-GFP dh1L-tetR-tdTomato} T$=15$s}
 \end{figure}
 
 \framebreak
@@ -315,7 +328,7 @@ Total number observed & 53 \\
 \centering
    \def\svgwidth{0.75\columnwidth}
 \input{sl249_cut2_nucred_cellgreen.pdf_tex}
-\caption{SL249: {\it cut2-GFP dh1L-tetR-tdTomato}}
+\caption{SL249: {\it cut2-GFP dh1L-tetR-tdTomato} T$=15$s}
 \end{figure}
 
 \framebreak
@@ -323,17 +336,10 @@ Total number observed & 53 \\
 \centering
    \def\svgwidth{0.75\columnwidth}
 \input{su076_cut2nucgreen_cdc2nucred.pdf_tex}
-\caption{SU076: {\it cdc2-mCherry cut2-GFP}}
+\caption{SU076: {\it cdc2-mCherry cut2-GFP} T$=15$s}
 \end{figure}
 
 
-\framebreak
-\begin{figure}
-\centering
-   \def\svgwidth{0.75\columnwidth}
-\input{su076_cut2nucgreen_cdc2nucred.pdf_tex}
-\caption{SU076: {\it cdc2-mCherry cut2-GFP}}
-\end{figure}
 
 
 \framebreak
@@ -342,7 +348,7 @@ Total number observed & 53 \\
 \centering
    \def\svgwidth{0.75\columnwidth}
 \input{st998_20xcdc13nucgreen_cdc2nucred.pdf_tex}
-\caption{ {ST998: {\it 20X-cdc13-sfGFP cdc2-mCherry}}}
+\caption{ {ST998: {\it 20X-cdc13-sfGFP cdc2-mCherry} T$=15$s}}
 \end{figure}
 
 \framebreak
@@ -350,7 +356,7 @@ Total number observed & 53 \\
 \centering
    \def\svgwidth{0.75\columnwidth}
 \input{su417_cdc13_wcgreen_nucred.pdf_tex}
-\caption{SU417: {\it plo1-mCherry 20Xcdc13-sfGFP}}
+\caption{SU417: {\it plo1-mCherry 20Xcdc13-sfGFP} T$=15$s}
 \end{figure}
 
 \framebreak
@@ -358,7 +364,7 @@ Total number observed & 53 \\
 \centering
    \def\svgwidth{0.75\columnwidth}
 \input{su302_nucgreen_nucred_declines_dont_match.pdf_tex}
-\caption {SU302: {\it 8Xcut2-GFP cdc2-mCherry}}
+\caption {SU302: {\it 8Xcut2-GFP cdc2-mCherry} T$=15$s}
 \end{figure}
 
 \framebreak
@@ -366,7 +372,7 @@ Total number observed & 53 \\
 \centering
    \def\svgwidth{0.75\columnwidth}
 \input{su303_cut2wr_cut2ng.pdf_tex}
-\caption{SU303: {\it 8Xcut2-GFP cdc2-mCherry }}
+\caption{SU303: {\it 8Xcut2-GFP cdc2-mCherry } T$=15$s}
 \end{figure}
 
 \begin{frame}{Conclusions 2}
@@ -378,19 +384,30 @@ Total number observed & 53 \\
 
 \section{Summary}
 
-\begin{frame}{Summary}
+\begin{frame}{Summary and Outlook}
 \begin{itemize}
 	\item MBC treatment experiment inconclusive
+		\begin{itemize}
+		\item Other approaches to study centromere separation
+		\item 3 color imaging?
+		\end{itemize}
 	\item Cdc13, cdc2, cut2 dynamics studied
+		\begin{itemize}
+		\item Cdc13-GFP cdc2-mCherry analysis/ refilming? 
+		\item Single comparison of all dynamics?
+		\end{itemize}
 \end{itemize}
 \end{frame}
 
-\section{Outlook}
-\begin{frame}{Outlook}
+\section{Learnings}
+\begin{frame}{Learnings}
 \begin{itemize}
-	\item Other approaches to study centromere separation
-	\item 
-
+\item Strain construction
+\item Live-cell fluorescence microscopy
+\item Rigorous documentation and data storage
+\item Shell scripting
+\item ImageJ Macro language
+\item Version control for scripts
 \end{itemize}
 \end{frame}
 % You can reveal the parts of a slide one at a time
